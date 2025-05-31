@@ -10,5 +10,35 @@
     <a href="index.html">Home</a>
   </nav>
   <p> Suppose you are given the following small table named 'sales': </p>
+  <table>
+  <tr>
+    <th>date</th>
+    <th>number_of_sales</th>
+  </tr>
+  <tr>
+    <td>2025-05-20</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>2025-05-22</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>2025-05-23</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2025-05-28</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>2025-05-29</td>
+    <td>3</td>
+  </tr>
+</table>
+<p> Write a SQL query to retrieve all days with no sales between the starting date and the ending date. </p>
+
+<p> We are going to use the sqldf library in R to solve the problem with recursion. 
+A recursive query is one that calls itself repeatedly until a certain condition is met. </p>
 </body>
 </html>	
