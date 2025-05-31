@@ -14,7 +14,7 @@
   <nav>
     <a href="index.html">Home</a>
   </nav>
-  <p> Suppose you are given the following small table named '<b> data </b>': </p>
+  <p> Suppose you are given the following table named '<b> data </b>': </p>
   <table>
   <tr>
     <th>date</th>
@@ -48,6 +48,7 @@
 <p> We are going to use the sqldf library in R to solve the problem with recursion. 
 A recursive query is one that calls itself repeatedly until a certain condition is met. </p>
 
+  <center>
    <pre><code class = "language-r">
 # Load sqldf library
 library(sqldf)
@@ -81,18 +82,19 @@ query = "
 sqldf(query)
 
    </code></pre>
+    </center>
 
 <p class = "justified"> The records are arranged in chronological order. Using recursion enables us to loop through all theoretical dates 
   between the earliest date and the latest date. For efficient computation, it is best to store the maximum date as a constant 
   in a common table expression (CTE). This way, it doesn't have to be recomputed every time the program checks whether the next date to be considered 
   in the recursion comes before the maximum date. </p>
 
-  <p = "justified"> Let's take a close look at the <i> REC </i> common table expression in the query. First, we create an initial record with the minimum date as
+  <p class = "justified"> Let's take a close look at the <i> REC </i> common table expression in the query. First, we create an initial record with the minimum date as
   its value. Secondly, we create the next record by computing the next calendar day as long as it comes before the maximum date. 
   This step is recursively applied to <i> REC </i> until the next calendar day is no longer anterior to the maximum date. </p>
 
   <p> At last, we simply extract from <i> REC </i> all dates that did not occur in <b> data </b> and obtain 
-
+<center>
      <table>
   <tr>
     <th>date</th>
@@ -113,7 +115,7 @@ sqldf(query)
     <td>2025-05-27</td>
   </tr>
 </table>
-  
+</center>
   </p>
 
 </body>
