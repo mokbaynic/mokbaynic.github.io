@@ -9,7 +9,7 @@
   <nav>
     <a href="index.html">Home</a>
   </nav>
-  <p> Suppose you are given the following small table named 'data': </p>
+  <p> Suppose you are given the following small table named '<b> data </b>': </p>
   <table>
   <tr>
     <th>date</th>
@@ -85,6 +85,31 @@ sqldf(query)
   <p> Let's take a close look at the <i> REC </i> common table expression in the query. First, we create an initial record with the minimum date as
   its value. Secondly, we create the next record by computing the next calendar day as long as it comes before the maximum date. 
   Now, this step is recursively applied to <i> REC </i> until the next calendar day is no longer anterior to the maximum date. </p>
+
+  <p> At last, we simply extract from <i> REC </i> all dates that did not occur in <b> data </b> and obtain 
+
+     <table>
+  <tr>
+    <th>date</th>
+  </tr>
+  <tr>
+    <td>2025-05-21</td>
+  </tr>
+  <tr>
+    <td>2025-05-24</td>
+  </tr>
+  <tr>
+    <td>2025-05-25</td>
+  </tr>
+  <tr>
+    <td>2025-05-26</td>
+  </tr>
+  <tr>
+    <td>2025-05-27</td>
+  </tr>
+</table>
+  
+  </p>
 
 </body>
 </html>	
