@@ -15,6 +15,7 @@
     <a href="index.html">Home</a>
   </nav>
   <p> Suppose you are given the following table named '<b> data </b>': </p>
+  <center>
   <table>
   <tr>
     <th>date</th>
@@ -41,6 +42,7 @@
     <td>3</td>
   </tr>
 </table>
+</center>
 <p> Write a SQL query to retrieve all days with no sales between the starting date and the ending date. </p>
 
 <p> <b> Solution #1 </b> </p>
@@ -48,7 +50,6 @@
 <p> We are going to use the sqldf library in R to solve the problem with recursion. 
 A recursive query is one that calls itself repeatedly until a certain condition is met. </p>
 
-  <center>
    <pre><code class = "language-r">
 # Load sqldf library
 library(sqldf)
@@ -82,7 +83,6 @@ query = "
 sqldf(query)
 
    </code></pre>
-    </center>
 
 <p class = "justified"> The records are arranged in chronological order. Using recursion enables us to loop through all theoretical dates 
   between the earliest date and the latest date. For efficient computation, it is best to store the maximum date as a constant 
