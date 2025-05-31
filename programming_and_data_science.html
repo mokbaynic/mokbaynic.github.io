@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Programming and Data Science</title>
+  <style>
+    .justified{
+      text-align: justify;
+    }
+  </style>
 </head>
 <body>
   <h1>SQL Problem #1</h1>
@@ -79,7 +84,7 @@ sqldf(query)
 
 <p> What is our reasoning? </p>
 
-<p> The records are arranged in chronological order. Using recursion enables us to loop through all theoretical dates 
+<p class = "justified"> The records are arranged in chronological order. Using recursion enables us to loop through all theoretical dates 
   between the earliest date and the latest date. For efficient computation, it is best to store the maximum date as a constant 
   in a common table expression (CTE). This way, it doesn't have to be recomputed every time the program checks whether the next date to be considered 
   in the recursion comes before the maximum date. </p>
