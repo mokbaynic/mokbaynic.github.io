@@ -82,16 +82,14 @@ sqldf(query)
 
    </code></pre>
 
-<p> What is our reasoning? </p>
-
 <p class = "justified"> The records are arranged in chronological order. Using recursion enables us to loop through all theoretical dates 
   between the earliest date and the latest date. For efficient computation, it is best to store the maximum date as a constant 
   in a common table expression (CTE). This way, it doesn't have to be recomputed every time the program checks whether the next date to be considered 
   in the recursion comes before the maximum date. </p>
 
-  <p> Let's take a close look at the <i> REC </i> common table expression in the query. First, we create an initial record with the minimum date as
+  <p = "justified"> Let's take a close look at the <i> REC </i> common table expression in the query. First, we create an initial record with the minimum date as
   its value. Secondly, we create the next record by computing the next calendar day as long as it comes before the maximum date. 
-  Now, this step is recursively applied to <i> REC </i> until the next calendar day is no longer anterior to the maximum date. </p>
+  This step is recursively applied to <i> REC </i> until the next calendar day is no longer anterior to the maximum date. </p>
 
   <p> At last, we simply extract from <i> REC </i> all dates that did not occur in <b> data </b> and obtain 
 
