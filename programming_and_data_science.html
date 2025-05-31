@@ -9,11 +9,11 @@
   <nav>
     <a href="index.html">Home</a>
   </nav>
-  <p> Suppose you are given the following small table named 'sales': </p>
+  <p> Suppose you are given the following small table named 'data': </p>
   <table>
   <tr>
     <th>date</th>
-    <th>number_of_sales</th>
+    <th>sales</th>
   </tr>
   <tr>
     <td>2025-05-20</td>
@@ -40,5 +40,39 @@
 
 <p> We are going to use the sqldf library in R to solve the problem with recursion. 
 A recursive query is one that calls itself repeatedly until a certain condition is met. </p>
+
+   <pre><code class = "language-r">
+   library(sqldf)
+
+# Create data frame
+dates = c("2025-05-20", "2025-05-22", "2025-05-23", "2025-05-28", "2025-05-29")
+sales = c(2, 3, 1, 4, 3)
+data  = data.frame(date  = dates, sales = sales)
+
+# Write SQL query
+query = "
+          WITH Constants AS (
+                      SELECT MIN(date) AS min_date,
+                             MAX(date) AS max_date
+                      FROM   data
+          ),
+          
+          REC AS (
+                      SELECT min_date AS date FROM Constants
+                      UNION ALL
+                      SELECT DATE(date, '+1 day') AS date FROM REC
+                      WHERE  DATE(date, '+1 day') < (SELECT max_date FROM Constants)
+          )
+          
+          SELECT date
+          FROM REC
+          WHERE date NOT IN (SELECT DISTINCT date FROM data) 
+          AND date > (SELECT min_date FROM Constants)
+        "
+# Run query and display outcome
+sqldf(query)
+
+   </code></pre>  
+
 </body>
 </html>	
